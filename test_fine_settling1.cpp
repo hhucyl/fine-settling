@@ -20,7 +20,7 @@ void Report(LBM::Domain &dom, void *UD)
     if(dom.Time <1e-6)
     {
         String fs;
-        fs.Printf("%s.out","settling_hex_20.0_20.0");
+        fs.Printf("%s.out","settling_hex_10.0_100.0");
         
         dat.oss_ss.open(fs.CStr(),std::ios::out);
         dat.oss_ss<<Util::_10_6<<"Time"<<Util::_8s<<"Re"<<Util::_8s<<"Vx"<<Util::_8s<<"Vy"<<Util::_8s<<"X"<<Util::_8s<<"Y\n";
@@ -44,7 +44,7 @@ int main (int argc, char **argv) try
     std::srand((unsigned)time(NULL));    
     size_t Nproc = 12;
     double nu = 0.01;
-    double ratio = 20.0;
+    double ratio = 10.0;
     int pnx = 6;
     int pny = 70;
     double R = 5.0;
@@ -59,12 +59,12 @@ int main (int argc, char **argv) try
         h5name = argv[3];
     }
 
-    size_t nx = 1200;
+    size_t nx = 600;
     size_t ny = 7000;
     size_t nz = 1;
     double dx = 1.0;
     double dt = 1.0;
-    double Ga = 20.0;
+    double Ga = 100.0;
     double rho = 1.0;
     double rhos = 1.1;
     double gy = Ga*Ga*nu*nu/((8*R*R*R)*(rhos/rho-1));
@@ -147,14 +147,14 @@ int main (int argc, char **argv) try
 
     Vec3_t v0(0.0,0.0,0.0);
     dom.IsF = true;
-    //if(initfromfile)
-   // {
-       // dom.InitialFromH5("test_fine_settling_cti1_0039.h5",g0);
+    if(initfromfile)
+    {
+        dom.InitialFromH5(h5name,g0);
 
-    //}else{
-       dom.Initial(rho,v0,g0);
+    }else{
+        dom.Initial(rho,v0,g0);
 
-    //}
+    }
 
 
     double Tf = 1e6;
@@ -163,7 +163,7 @@ int main (int argc, char **argv) try
     dom.Box = 0.0,(double) nx-1, 0.0;
     dom.modexy = 0;
     //solving
-    dom.Solve( Tf, dtout, "/home/Staff/uqyche38/macondo/settling_hex_20.0_20.0/test_fine_settling", NULL, Report);
+    dom.Solve( Tf, dtout, "/home/Staff/uqyche38/macondo/settling_hex_10.0_100.0/test_fine_settling", NULL, Report);
     
     return 0;
 }MECHSYS_CATCH

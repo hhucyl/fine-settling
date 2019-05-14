@@ -1,0 +1,17 @@
+#!/bin/sh
+#SBATCH --nodes=1
+
+#SBATCH -p macondo
+
+#SBATCH --cpus-per-task=14
+
+#SBATCH --time=500:00:00
+
+#SBATCH --job-name=sh10100
+
+#SBATCH --mail-type=ALL
+
+#SBATCH --mail-user=hhucyl@hotmail.com
+
+cd ~/fine-settling/
+./test_fine_settling1

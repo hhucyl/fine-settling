@@ -24,6 +24,9 @@ INCLUDE(${MECHSYSSANDBOX_SOURCE_DIR}/UseMECHSYS.cmake)
 
 SET(PROGS
     test_fine_settling
+    test_fine_settling1
+    test_fine_settling_clean
+    test_fine_settling_clean1
 )
 
 FOREACH(var ${PROGS})

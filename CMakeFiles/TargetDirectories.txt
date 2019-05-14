@@ -1,0 +1,4 @@
+/home/Staff/uqyche38/fine-settling/CMakeFiles/test_fine_settling_clean.dir
+/home/Staff/uqyche38/fine-settling/CMakeFiles/test_fine_settling1.dir
+/home/Staff/uqyche38/fine-settling/CMakeFiles/test_fine_settling_clean1.dir
+/home/Staff/uqyche38/fine-settling/CMakeFiles/test_fine_settling.dir
